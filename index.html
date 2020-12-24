@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SimaKyr Майнкрафт сервер</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+    <script src="mcs.js" charset="utf-8"></script>
+    <script src="snow.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Сервер SimaKyr</h1>
+    <div class="box" id="main">
+      <div id="icon-and-name">
+        <img src="favicon.png" id="icon-server" alt="Инконка сервера">
+        <div class="colum">
+          <h2>Сервер SimaKyr </h2>
+          <b>Адрес сервера: </b>
+          <div class="colum">
+            <p id="addressServer">Доступ запрещен</p>
+            <img src="copy.svg" id="copyAddress" alt="[Скопировать]" class="blc">
+          </div>
+          <i id="onlyjava">(для ПК/ MC: Java Edition)</i>
+        </div>
+      </div>
+      <div class="colum blc">
+        <b>Статус сервера: </b>
+        <b id="statusServer">Доступ запрещен</b>
+        <i id="beta"> (Бета)</i>
+      </div>
+      <div class="colum">
+        <b class="blc">Версия игры: </b>
+        <p id="versionServer">Только у SimaKyr можно получить проход на этот сайт.</p>
+      </div>
+      <div class="colum">
+        <b class="blc">Игроки: </b>
+        <p id="playersServer">Вам нужна ссылка которая вас зарегестрирует: http://simakyr.github.io/mcs?pass=***</p>
+      </div>
+      <div class="colum">
+        <b class="blc">Сервер уже работает: </b>
+        <p id="uptimeServer">*** - это секретный ключ. После регистрации вам не нужна будет ссылка в этом браузере.</p>
+      </div>
+      <p class="blc">Не забывайте что адрес меняеться(Только для сервера ПК) после каждой перезагрузки сервера!</p>
+    </div>
+  </body>
+</html>

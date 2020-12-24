@@ -1,0 +1,55 @@
+b, i, p, h1, h2, h3, h4, h5, h6{
+  font-family: 'Jura', sans-serif;
+}
+h1{
+  text-align: center;
+  padding-top: 1%;
+}
+#onlyjava{
+    color: #f00;
+}
+#beta{
+    color: #f00;
+}
+#copyAddress{
+  padding: 5px;
+  border-radius: 5px;
+  background: #fff;
+  transition: .3s background;
+  height: 16px;
+}
+#copyAddress:hover{
+  background: #0af;
+  transition: .3s background;
+}
+#main{
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(117,173,255,1) 60%);
+}
+.colum * {
+    display: contents;
+}
+.colum {
+    padding: 10px;
+}
+#icon-and-name {
+    display: flex;
+}
+#icon-server{
+    height: 256px;
+    image-rendering: pixelated;
+    border-radius: 50%;
+}
+#icon-and-name .colum * {
+    display: inherit;
+}
+.box{
+  padding: 50px;
+  border-radius: 100px;
+  margin: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+#icon-and-name{
+  background: #fff;
+  border-radius: 200px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
