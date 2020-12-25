@@ -2,10 +2,11 @@
 <html lang="ru" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>SimaKyr Майнкрафт сервер</title>
+    <title>SimaKyr - майнкрафт сервер</title>
     <link rel="shortcut icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
@@ -14,24 +15,44 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>Сервер SimaKyr</h1>
+    <div class="alert">
+      <h2>Сообщение</h2>
+      <p></p>
+    </div>
+    <div id="bar">
+      <img src="favicon.png" id="icon-site" alt="Инконка сайта">
+      <h2 id="name-site">Сайт сервера SimaKyr</h2>
+      <button type="button" name="button" id="goToMainPage">Перейти на сайт SimaKyr</button>
+      <button type="button" name="button" id="qrcodeGet" class="blk">QR-код на этот сайт</button>
+      </div>
+    <div id="qrcode">
+      <button type="button" name="button" id="closeqr">Закрыть</button>
+      <p>Не показывай это другим людям!</p>
+      <img src="error" alt="qrcode" id="theqr">
+    </div>
+    <h1>Статус сервера SimaKyr</h1>
     <div class="box" id="main">
       <div id="icon-and-name">
         <img src="favicon.png" id="icon-server" alt="Инконка сервера">
         <div class="colum">
-          <h2>Сервер SimaKyr </h2>
+          <h3>Сервер SimaKyr </h3>
           <b>Адрес сервера: </b>
           <div class="colum">
-            <p id="addressServer">Доступ запрещен</p>
-            <img src="copy.svg" id="copyAddress" alt="[Скопировать]" class="blc">
+            <div class="forCopy">
+              %ip_pc%
+            </div>
           </div>
           <i id="onlyjava">(для ПК/ MC: Java Edition)</i>
+          <small>Используйте F5 для обновления адреса</small>
         </div>
       </div>
       <div class="colum blc">
-        <b>Статус сервера: </b>
+        <b>Статус сервера Minecraft:Java Edition (для ПК): </b>
         <b id="statusServer">Доступ запрещен</b>
-        <i id="beta"> (Бета)</i>
+      </div>
+      <div class="colum blc">
+        <b>Статус сервера Minecraft:Bedrock Edition (для Android): </b>
+        <b id="statusServerBedrock">Доступ запрещен</b>
       </div>
       <div class="colum">
         <b class="blc">Версия игры: </b>
@@ -47,5 +68,393 @@
       </div>
       <p class="blc">Не забывайте что адрес меняеться(Только для сервера ПК) после каждой перезагрузки сервера!</p>
     </div>
+    <h2 class="blc">Информация:</h2>
+    <div class="box blc" id="content-list">
+      <div class="colum">
+        <b>Для ПК:</b>
+      </div>
+      <div class="links">
+        <div class="colum">
+          <p>1.1.	Как скачать Minecraft <b>%version%</b> на компьютер?</p>
+        </div>
+        <div class="colum anyway">
+          <p>1.2.	Устанавливаем мод сборку для улучшения FPS(рекомендуем).</p>
+        </div>
+        <div class="colum">
+          <p>1.2.	Как войти на сервер?</p>
+        </div>
+      </div>
+      <div class="colum">
+        <b>Для мобильных устройств:</b>
+      </div>
+      <div class="links">
+        <div class="colum">
+          <p>2.1.	Как скачать Minecraft <b>%version_be%</b> на Android?</p>
+        </div>
+        <div class="colum">
+          <p>2.2.	Отключаем ошибку мобильного интернета в Minecraft: BE.</p>
+        </div>
+        <div class="colum">
+          <p>2.3.	Входим в Xbox Live.</p>
+        </div>
+        <div class="colum">
+          <p>2.4.	Скачиваем Tailscale.</p>
+        </div>
+        <div class="colum">
+          <p>2.6.	Как войти на сервер на телефоне?</p>
+        </div>
+        <div class="colum">
+          <p>2.7.	Повышаем FPS на мобильниках.</p>
+        </div>
+      </div>
+      <div class="colum">
+        <b>Для любого устройства:</b>
+      </div>
+      <div class="links">
+        <div class="colum">
+          <p>3.1.	Регистрация на сервере.</p>
+        </div>
+        <div class="colum">
+          <p>3.2.	Что за пароль на сервере?</p>
+        </div>
+        <div class="colum">
+          <p>3.3.	Как изменить скин?</p>
+        </div>
+        <div class="colum">
+          <p>3.4.	Установка Discord.</p>
+        </div>
+        <div class="colum anyway">
+          <p>3.5.	Привязка аккаунта Discord к Minecraft.</p>
+        </div>
+      </div>
+    </div>
+    <div class="colum blc center">
+      <h2>Как скачать Minecraft <b>%version%</b> на компьютер?</h2>
+    </div>
+    <div class="box blc">
+      <div class="colum">
+        <p>1. Нажмите на эту кнопку:</p>
+        <button type="button" name="button" id="downloadTl">Скачать TLauncher</button>
+      </div>
+      <div class="colum">
+        <p>2.	Открываем скачанный файл.</p>
+      </div>
+      <div class="colum">
+        <p>4. Выбираем «<b>Продолжить</b>» 4 раза</p>
+      </div>
+      <div class="colum">
+        <p>5.	Нажимаем «<b>Завершить</b>».</p>
+      </div>
+      <div class="colum">
+        <p>6.	Открываем с рабочего стола «<b>TLauncher</b>» если не открылся.</p>
+      </div>
+      <div class="colum">
+        <p>7.	Ожидаем загрузки.</p>
+      </div>
+      <div class="colum">
+        <p>8.	Возле пункта <b>Обновить клиент</b> выбираем версию Minecraft <b>%version%</b>.</p>
+      </div>
+      <div class="colum">
+        <p>9.	Выбираем <b>«Войти в игру»</b> в «<b>TLauncher</b>».</p>
+      </div>
+      <div class="colum">
+        <p>10.	Ожидаем загрузки(первая загрузка очень длинная!).</p>
+      </div>
+      <div class="colum">
+        <p>11.	Вы в игре! Переходите к следующему пункту.</p>
+      </div>
+      <div class="colum">
+        <button type="button" name="button" id="errorMinecraft">Майнкрафт не запустился</button>
+      </div>
+    </div>
+    <h2 class="blc anyway">Устанавливаем мод сборку для улучшения FPS</h2>
+    <div class="box blc anyway">
+      <p>В разработке... Ожидайте добавления инструкции!</p>
+    </div>
+    <h2 class="blc">Как скачать Minecraft <b>%version_be%</b> на Android?</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1.	Нажмите на кнопку ниже:</p>
+      </div>
+      <div class="colum">
+        <button type="button" name="button" id="downloadMCBE">Скачать %version_be% Майнкрафт на телефон</button>
+      </div>
+      <div class="colum">
+        <p>2.	Подождать на том сайте 5 секунд и нажать «<b>Скачать файл</b>» потом установить скачанный файл.</p>
+      </div>
+      <div class="colum">
+        <p>3.	Переходите к следующему пункту.</p>
+      </div>
+    </div>
+    <h2 class="blc">Как войти на сервер на ПК?</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1. Открываем «<b>Minecraft</b>».</p>
+      </div>
+      <div class="colum">
+        <p>2. Ждем запуска.</p>
+      </div>
+      <div class="colum">
+        <p>3. Выбираем «<b>Сетевая игра</b>».</p>
+      </div>
+      <div class="colum">
+        <p>4. Выбираем «<b>Добавить</b>» и пишем в «<b>Адрес сервера</b>» следуйшее:</p>
+      </div>
+      <div class="colum">
+        <div class="forCopy">
+          %ip_pc%
+        </div>
+      </div>
+      <div class="colum">
+        <p> и нажимаем «<b>Готово</b>».</p>
+      </div>
+      <div class="colum">
+        <p>5. Нажмите кнопку «<b>Обновить</b>».</p>
+      </div>
+      <div class="colum">
+        <p>6. Нажимаем на сервер что добавили и нажмите «<b>Подключиться</b>».</p>
+      </div>
+      <div class="colum">
+        <p>Не забывайте что адрес меняется(<b>ТОЛЬКО НА ПК</b>) почти <b>после каждого включения</b> сервера.</p>
+      </div>
+      <div class="colum">
+        <p>Можно использовать кнопку «<b>Настроить</b>» чтобы не создавать заново, и не забывайте нажимать «<b>Обновить</b>».</p>
+      </div>
+    </div>
+    <h2 class="blc">Отключаем ошибку мобильного интернета в Minecraft.</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1.	Заходим в «<b>Minecraft</b>» на телефоне..</p>
+      </div>
+      <div class="colum">
+        <p>2.	Нажимаем «<b>Настройки</b>».</p>
+      </div>
+      <div class="colum">
+        <p>3.	Выбираем кнопку «<b>Профиль</b>».</p>
+      </div>
+      <div class="colum">
+        <p>4.	Включаем галочку «<b>Использовать сотовую сеть передачи данных</b>».</p>
+      </div>
+      <div class="colum">
+        <p>5.	Переходите к следующему пункту.</p>
+      </div>
+    </div>
+    <h2 class="blc">Входим в Xbox Live.</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1.	Заходим в <b>Minecraft</b> на телефоне.</p>
+      </div>
+      <div class="colum">
+        <p>2.	Нажимаем на главном экране кнопку «<b>Войти</b>».</p>
+      </div>
+      <div class="colum">
+        <p>3.	Если у вас есть уже учетная запись <b>Microsoft</b> – входим в аккаунт, если нет<br>
+нажимаем кнопку регистрации. Если забыли пароль – нажимаем «<b>Сбросить пароль</b>».
+</p>
+      </div>
+      <div class="colum">
+        <p>4.	Переходите к следующему пункту.</p>
+      </div>
+    </div>
+    <h2 class="blc">Скачиваем Tailscale</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1.	Нажмите эту кнопку:</p>
+        <button type="button" name="button" id="downloadTailscale">Скачать Tailscale для Android</button>
+      </div>
+      <div class="colum">
+        <p>2.	Нажимаете кнопку «<b>Установить</b>».</p>
+      </div>
+      <div class="colum">
+        <p>3.	Переходите к следующему пункту.</p>
+      </div>
+    </div>
+    <h2 class="blc">Вход в Tailscale</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1.	Входим в приложение <b>Tailscale</b>.</p>
+      </div>
+      <div class="colum">
+        <p>2.	Нажимаем кнопку «<b>Get Started</b>».</p>
+      </div>
+      <div class="colum">
+        <p>3.	Выбираем «<b>Sign in with other</b>».</p>
+      </div>
+      <div class="colum">
+        <p>4.	Если спрашивает, выбираем <b>Chrome</b>.</p>
+      </div>
+      <div class="colum">
+        <p>5.	Откроется страница на которой выбираем «<b>Sign in with Microsoft</b>».</p>
+      </div>
+      <div class="colum">
+        <p>Входить в Microsoft аккаунт нужно только моими данными.</p>
+      </div>
+      <div class="colum">
+        <p>6.	В поле «<b>Электронная почта, телефон или Skype</b>» пишем:</p>
+      </div>
+      <div class="colum">
+        <div class="forCopy">
+          %tailscale_email%
+        </div>
+      </div>
+      <div class="colum">
+        <p>7.	Нажимает кнопку «<b>Далле</b>».
+      </div>
+      <div class="colum">
+        <p>8.	В поле «<b>Пароль</b>» пишем:</p>
+      </div>
+      <div class="colum">
+        <div class="forCopy">
+          %tailscale_password%
+        </div>
+      </div>
+      <div class="colum">
+        <p>9.	Ставим галочку «<b>Оставаться в системе</b>».</p>
+      </div>
+      <div class="colum">
+        <p>10.	Нажимаем кнопку «<b>Вход</b>».</p>
+      </div>
+      <div class="colum">
+        <p>11.	Нажимаем кнопку <b>закрыть</b>(сверху слева) в приложении <b>Tailscale</b>.</p>
+      </div>
+      <div class="colum">
+        <p>Когда собираетесь играть сверху справа есть кнопка, она должна находиться в положении <b>Active</b>.<br> Когда все то в положении - <b>Stopped</b></p>
+      </div>
+    </div>
+    <h2 class="blc">Вход на сервер через телефон</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>Когда вы выполнили пункты связанные со скачиваем <b>Minecraft</b>, входом в <b>Microsoft</b> в <br>аккаунт, настройкой <b>Tailscale</b> то можно переходить к этому пункту.</p>
+      </div>
+      <div class="colum">
+        <p>Не забываем включать галочку в <b>Tailscale</b>!</p>
+      </div>
+      <div class="colum">
+        <p>1.	Заходим в <b>Minecraft</b> на телефоне.</p>
+      </div>
+      <div class="colum">
+        <p>2.	Нажимаем кнопку «<b>Играть</b>».</p>
+      </div>
+      <div class="colum">
+        <p>3.	Выбираем раздел «<b>Серверы</b>».</p>
+      </div>
+      <div class="colum">
+        <p>4.	Листаем в самый низ и выбираем кнопку «<b>Добавить сервер</b>».</p>
+      </div>
+      <div class="colum">
+        <p>5.	В поле «<b>Имя сервера</b>» пишем <b>любое</b> название сервера, можно <i>SimaKyr</i>.</p>
+      </div>
+      <div class="colum">
+        <p>6.	В поле «<b>Адрес сервера</b>» пишем:</p>
+      </div>
+      <div class="colum">
+        <div class="forCopy">
+          %ip_bedrock%
+        </div>
+      </div>
+      <div class="colum">
+        <p>7.	Нажимаем кнопку «<b>Сохранить</b>».</p>
+      </div>
+      <div class="colum">
+        <p>Нажимаем на сервер с названием которое <b>вы</b> добавили. Пункты 4-7 нужно выполнить только первый раз.</p>
+      </div>
+    </div>
+    <h2 class="blc">Повышаем FPS на мобильниках</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>Вот простая инструкция как сделать чтобы <b>Minecraft</b> на телефонах <b>лучшее работал</b> и <b>выдавал больше FPS</b>.</p>
+      </div>
+      <div class="colum">
+        <p>1.	Заходим в <b>Minecraft</b>.</p>
+      </div>
+      <div class="colum">
+        <p>2.	Нажимаем «<b>Настройки</b>».</p>
+      </div>
+      <div class="colum">
+        <p>3.	Выбираем «<b>Видео</b>».</p>
+      </div>
+      <div class="colum">
+        <p>4.	Выключаем <b>Красивые пузыри, Визуализация облаков, Красивое небо, Мягкое освещение, Классная графика</b>.</p>
+      </div>
+      <div class="colum">
+        <p>5.	<b>Дальность прорисовки</b> выставляете в <b>6</b> фрагментов.</p>
+      </div>
+      <div class="colum">
+        <p>6.	Готово!</p>
+      </div>
+    </div>
+    <h2 class="blc">Регистрация на сервере</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1.	Заходим на сервер.</p>
+      </div>
+      <div class="colum">
+        <p>2.	На ПК нажмите клавишу <b>T</b>, на телефонах <b>кнопка сообщения</b>. И введите:
+      </div>
+      <div class="colum">
+        <div class="forCopy">
+          /registster придумайтеСвойПароль повторитеПарольСвойПароль
+        </div>
+      </div>
+        <div class="colum">
+          <p>3.	Готово!</p>
+        </div>
+        <div class="colum">
+          <p>Если вы забыли пароль, напишите админу, или поменяйте ник.</p>
+        </div>
+      </div>
+    </div>
+    <h2 class="blc">Вход на сервере</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1.	Откройте чат.</p>
+      </div>
+      <div class="colum">
+        <p>2.	Напишите команду:</p>
+      </div>
+      <div class="colum">
+        <div class="forCopy">
+          /login вашПароль
+        </div>
+      </div>
+      <div class="colum">
+        <p>3.	Готово!</p>
+      </div>
+    </div>
+    <h2 class="blc">Установка Discord</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1.	Нажмите на кнопку ниже:</p>
+        <button type="button" name="button" id="discordOfficial">Открыть оф. сайт Discord </button>
+      </div>
+      <div class="colum">
+        <p>2.	Выберите <b>Установить…</b> или <b>Скачать …</b> на сайте Discord .</p>
+      </div>
+      <div class="colum">
+        <p>3.	<b>Зарегистрируйтесь</b> или <b>войдите</b> в приложение.</p>
+      </div>
+      <div class="colum">
+        <p>4.	Используйте эту кнопку чтобы войти на <b>наш сервер Discord</b>:</p>
+      </div>
+      <div class="colum">
+        <button type="button" name="button" id="acceptDiscordInvite">Присоединиться к серверу Discord</button>
+      </div>
+    </div>
+    <h2>О использовании ресурсов</h2>
+    <div class="box">
+      <div class="colum">
+        <p>Сайт создан SimaKyr-ом в 2020 году, можно использовать на лицензии MIT</p>
+      </div>
+      <div class="colum">
+        <p>Используеться библиотека https://github.com/kurisubrooks/snow.js на лицензии MIT</p>
+      </div>
+      <div class="colum">
+        <p>Используеться значок копирования без лицензии, сайт: https://uxwing.com/copy-icon/</p>
+      </div>
+      <div class="colum">
+        <p>Для хранения данных используеться Firebase</p>
+      </div>
+    </div>
+
   </body>
 </html>
