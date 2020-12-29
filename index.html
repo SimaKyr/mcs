@@ -28,7 +28,7 @@
     <div id="qrcode">
       <button type="button" name="button" id="closeqr">Закрыть</button>
       <p>Не показывай это другим людям!</p>
-      <img src="error" alt="qrcode" id="theqr">
+      <img alt="qrcode" id="theqr">
     </div>
     <h1>Статус сервера SimaKyr</h1>
     <div class="box" id="main">
@@ -38,12 +38,11 @@
           <h3>Сервер SimaKyr </h3>
           <b>Адрес сервера: </b>
           <div class="colum">
-            <div class="forCopy">
-              %ip_pc%
+            <div class="forCopy" var="%ip_pc%">
             </div>
           </div>
           <i id="onlyjava">(для ПК/ MC: Java Edition)</i>
-          <small>Используйте F5 для обновления адреса</small>
+          <small>Адрес автоматически обновляеться на этом сайте</small>
         </div>
       </div>
       <div class="colum blc">
@@ -66,6 +65,10 @@
         <b class="blc">Сервер уже работает: </b>
         <p id="uptimeServer">*** - это секретный ключ. После регистрации вам не нужна будет ссылка в этом браузере.</p>
       </div>
+      <div class="colum">
+        <b class="blc">Оперативная память сервера: </b>
+        <b class="blc" var="%ram%"></b>
+      </div>
       <p class="blc">Не забывайте что адрес меняеться(Только для сервера ПК) после каждой перезагрузки сервера!</p>
     </div>
     <h2 class="blc">Информация:</h2>
@@ -75,7 +78,7 @@
       </div>
       <div class="links">
         <div class="colum">
-          <p>1.1.	Как скачать Minecraft <b>%version%</b> на компьютер?</p>
+          <p>1.1.	Как скачать Minecraft <b var="%version%"></b> на компьютер?</p>
         </div>
         <div class="colum anyway">
           <p>1.2.	Устанавливаем мод сборку для улучшения FPS(рекомендуем).</p>
@@ -89,7 +92,7 @@
       </div>
       <div class="links">
         <div class="colum">
-          <p>2.1.	Как скачать Minecraft <b>%version_be%</b> на Android?</p>
+          <p>2.1.	Как скачать Minecraft <b var="%version_be%"></b> на Android?</p>
         </div>
         <div class="colum">
           <p>2.2.	Отключаем ошибку мобильного интернета в Minecraft: BE.</p>
@@ -129,7 +132,7 @@
       </div>
     </div>
     <div class="colum blc center">
-      <h2>Как скачать Minecraft <b>%version%</b> на компьютер?</h2>
+      <h2>Как скачать Minecraft <b var="%version%"></b> на компьютер?</h2>
     </div>
     <div class="box blc">
       <div class="colum">
@@ -152,7 +155,7 @@
         <p>7.	Ожидаем загрузки.</p>
       </div>
       <div class="colum">
-        <p>8.	Возле пункта <b>Обновить клиент</b> выбираем версию Minecraft <b>%version%</b>.</p>
+        <p>8.	Возле пункта <b>Обновить клиент</b> выбираем версию Minecraft <b var="%version%"></b>.</p>
       </div>
       <div class="colum">
         <p>9.	Выбираем <b>«Войти в игру»</b> в «<b>TLauncher</b>».</p>
@@ -171,13 +174,13 @@
     <div class="box blc anyway">
       <p>В разработке... Ожидайте добавления инструкции!</p>
     </div>
-    <h2 class="blc">Как скачать Minecraft <b>%version_be%</b> на Android?</h2>
+    <h2 class="blc">Как скачать Minecraft <b var="%version_be%"></b> на Android?</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Нажмите на кнопку ниже:</p>
       </div>
       <div class="colum">
-        <button type="button" name="button" id="downloadMCBE">Скачать %version_be% Майнкрафт на телефон</button>
+        <button type="button" name="button" id="downloadMCBE">Скачать <b var="%version_be%"></b> Майнкрафт на телефон</button>
       </div>
       <div class="colum">
         <p>2.	Подождать на том сайте 5 секунд и нажать «<b>Скачать файл</b>» потом установить скачанный файл.</p>
@@ -201,8 +204,7 @@
         <p>4. Выбираем «<b>Добавить</b>» и пишем в «<b>Адрес сервера</b>» следуйшее:</p>
       </div>
       <div class="colum">
-        <div class="forCopy">
-          %ip_pc%
+        <div class="forCopy" var="%ip_pc%">
         </div>
       </div>
       <div class="colum">
@@ -293,8 +295,7 @@
         <p>6.	В поле «<b>Электронная почта, телефон или Skype</b>» пишем:</p>
       </div>
       <div class="colum">
-        <div class="forCopy">
-          %tailscale_email%
+        <div class="forCopy" var="%tailscale_email%">
         </div>
       </div>
       <div class="colum">
@@ -304,8 +305,7 @@
         <p>8.	В поле «<b>Пароль</b>» пишем:</p>
       </div>
       <div class="colum">
-        <div class="forCopy">
-          %tailscale_password%
+        <div class="forCopy" var="%tailscale_password%">
         </div>
       </div>
       <div class="colum">
@@ -348,8 +348,7 @@
         <p>6.	В поле «<b>Адрес сервера</b>» пишем:</p>
       </div>
       <div class="colum">
-        <div class="forCopy">
-          %ip_bedrock%
+        <div class="forCopy" var="%ip_bedrock%">
         </div>
       </div>
       <div class="colum">
