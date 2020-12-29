@@ -12,7 +12,7 @@ window.mobileCheck = function() {
   return check;
 };
 window.mobile = window.mobileCheck();
-window.mobile = true; // REMOVE IN PUBLIC VERSION
+// window.mobile = true; // REMOVE IN PUBLIC VERSION
 
 function timeConversion(duration) {
   const portions = [];
