@@ -45,9 +45,6 @@ function setModePublic() {
 function blockAnyWay() {
   [...document.getElementsByClassName('anyway')].map(n => n && n.remove());
 }
-function copyButtonsHandle() {
-  [...document.getElementsByClassName('copy')].map(n => n && cpHd(n));
-}
 var uptime = 0;
 
 replaceAllDoc = function (a, b) {
@@ -68,11 +65,18 @@ copySupport = function () {
     s.src = 'copy.svg';
     s.alt = '[Скопировать]';
     s.className = 'copy';
-    s.copy = v[i].innerText;
+    s.onclick = function (e) {
+      var text = e.target.previousElementSibling.innerText;
+      navigator.clipboard.writeText(text).then(function() {
+        alert('Текст скопирован!');
+      }, function(err) {
+        alert('Ошибка копирования!');
+        console.error('Асинхронное событие: Невозможно скопировать текст, ошибка: ', err);
+      });
+    }
     v[i].after(s);
     i++;
   }
-  copyButtonsHandle();
 }
 
 alert = function(text){
@@ -84,34 +88,46 @@ alert = function(text){
       alertElement.style.visibility = 'hidden';
     }, 3000);
 }
-function update() {
-  var stOnline;
+var stOnline;
+function getOnline(){
   stOnline = get['status'] == 'online';
-  if(get['uptime'] != uptime){
-    if(stOnline){
-      stOnline = false;
-    }
+  if(window.firstFBLoad){
+    uptime = get['uptime'];
   }
-  if(!stOnline){
-    statusServer.innerText = 'Выключен';
-    statusServer.style.color = '#f00';
+  if(get['uptime'] == uptime){
+      stOnline = false;
+  }
+  if(stOnline){
+    replaceAllDoc('%ip_pc%', get['ip-address']);
   }else{
+    replaceAllDoc('%ip_pc%', randomJokeIP());
+  }
+  uptime = get['uptime'];
+}
+function update() {
+  if(stOnline){
     statusServer.innerText = 'В сети';
     statusServer.style.color = '#0f0';
+    statusServer.style.background = '#fff';
+  }else{
+    statusServer.innerText = 'Выключен';
+    statusServer.style.color = '#f00';
+    statusServer.style.background = 'transperent';
   }
   if(get['status-be'] == 'offline'){
     statusServerBedrock.innerText = 'Выключен';
     statusServerBedrock.style.color = '#f00';
+    statusServerBedrock.style.background = 'transperent';
   }else{
     statusServerBedrock.innerText = 'В сети';
     statusServerBedrock.style.color = '#0f0';
+    statusServerBedrock.style.background = '#fff';
   }
   str = get['mcversion'];
   str = str.substring(0, str.length - 1) + 'x';
   versionServer.innerText = str;
   playersServer.innerText = get['players'] + '/' + get['max_players'];
   uptimeServer.innerText = timeConversion(get['uptime']*1000);
-  uptime = get['uptime'];
   if(window.firstFBLoad){
     acceptDiscordInvite.onclick = function () {
       window.open(get['discord-invite']);
@@ -119,6 +135,9 @@ function update() {
     downloadMCBE.onclick = function () {
       window.open(get['url-install-android']);
     }
+    copySupport();
+    replaceAllDoc('%ip_pc%', 'Загрузка...');
+    setInterval(getOnline, 1000*10);
     window.scrollTo(0, 0);
   }
     replaceAllDoc('%tailscale_password%', get['tailscale-password']);
@@ -127,56 +146,30 @@ function update() {
     replaceAllDoc('%version%', get['mcversion']);
     replaceAllDoc('%version_be%', get['mcversion_be']);
     replaceAllDoc('%ram%', get['ram'] + ' Мегабайт');
-    if(stOnline){
-      replaceAllDoc('%ip_pc%', get['ip-address']);
-    }else{
-      replaceAllDoc('%ip_pc%', randomJokeIP());
-    }
-    copySupport();
     theqr.src = get['qrcode'];
 
   window.firstFBLoad = false;
 }
 
-function cpHd(n){
-  n.onclick = function (e) {
-    var text = e.target.copy;
-    navigator.clipboard.writeText(text).then(function() {
-      alert('Текст скопирован!');
-    }, function(err) {
-      alert('Ошибка копирования!');
-      console.error('Async: Could not copy text: ', err);
-    });
+function iDomObj(dom_obj){
+  var i = 0;
+  while(dom_obj.length != i){
+    window[dom_obj[i]] = document.getElementById(dom_obj[i]);
+    i++;
   }
 }
-
 function init() {
   var alertElement = document.getElementsByClassName('alert')[0];
   alertElement.style.visibility = 'hidden';
 
-  function link(id){
-    window[id] = document.getElementById(id);
-  }
+  iDomObj(['statusServer', 'versionServer', 'playersServer', 'uptimeServer', 'statusServerBedrock']);
 
-  link('statusServer');
-  link('versionServer');
-  link('playersServer');
-  link('uptimeServer');
-  link('statusServerBedrock');
+  iDomObj(['goToMainPage']);
 
-  link('goToMainPage');
+  iDomObj(['downloadTl', 'errorMinecraft', 'downloadTailscale', 'acceptDiscordInvite', 'downloadMCBE', 'discordOfficial']);
 
-  link('downloadTl');
-  link('errorMinecraft');
-  link('downloadTailscale');
-  link('acceptDiscordInvite');
-  link('downloadMCBE');
-  link('discordOfficial');
+  iDomObj(['qrcode', 'qrcodeGet', 'closeqr', 'theqr']);
 
-  link('qrcode');
-  link('qrcodeGet');
-  link('closeqr');
-  link('theqr')
   qrcode.style.display = "none";
   closeqr.onclick = function () {
     qrcode.style.display = "none";
