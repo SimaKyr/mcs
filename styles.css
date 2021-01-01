@@ -50,6 +50,18 @@ h1, h2{
   margin-left: 30px;
   margin-right: 30px;
 }
+.reg h2 {
+  margin-top: 0px;
+}
+.reg {
+  padding-left: 100px;
+}
+input{
+  border: solid 1px #000;
+  border-radius: 20px;
+  outline: 0;
+  padding: 5px;
+}
 /* MOBILE SUPPORT START*/
 .mobile .box{
   margin: 0;

@@ -10,6 +10,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="mcs.js" charset="utf-8"></script>
     <script src="snow.js" charset="utf-8"></script>
     <link rel="stylesheet" href="styles.css">
@@ -24,10 +25,14 @@
       <h2 id="name-site">Сайт сервера SimaKyr</h2>
       <button type="button" name="button" id="goToMainPage">Перейти на сайт SimaKyr</button>
       <button type="button" name="button" id="qrcodeGet" class="blk">QR-код на этот сайт</button>
+        <div class="reg">
+          <h2>Введите ваш ник:</h2>
+          <input type="text" id="nickname" value="Steve">
+        </div>
       </div>
     <div id="qrcode">
       <button type="button" name="button" id="closeqr">Закрыть</button>
-      <p>Не показывай это другим людям!</p>
+      <p>На современном телефоне достаточно лишь открыть приложение камеры, навести и за одну секунду вам предложат открыть сайт...</p>
       <img alt="qrcode" id="theqr">
     </div>
     <h1>Статус сервера SimaKyr</h1>
@@ -54,24 +59,24 @@
         <b id="statusServerBedrock">Доступ запрещен</b>
       </div>
       <div class="colum">
-        <b class="blc">Версия игры: </b>
+        <b>Версия игры: </b>
         <p id="versionServer">Только у SimaKyr можно получить проход на этот сайт.</p>
       </div>
       <div class="colum">
-        <b class="blc">Игроки: </b>
+        <b>Игроки: </b>
         <p id="playersServer">Вам нужна ссылка которая вас зарегестрирует: http://simakyr.github.io/mcs?pass=***</p>
       </div>
       <div class="colum">
-        <b class="blc">Сервер уже работает: </b>
+        <b>Сервер уже работает: </b>
         <p id="uptimeServer">*** - это секретный ключ. После регистрации вам не нужна будет ссылка в этом браузере.</p>
       </div>
       <div class="colum">
-        <b class="blc">Оперативная память сервера: </b>
-        <b class="blc" var="%ram%"></b>
+        <b>Оперативная память сервера: </b>
+        <b var="%ram%"></b>
       </div>
-      <p class="blc">Не забывайте что адрес меняеться(Только для сервера ПК) после каждой перезагрузки сервера!</p>
+      <p>Не забывайте что адрес меняеться(Только для сервера ПК) после каждой перезагрузки сервера!</p>
     </div>
-    <h2 class="blc">Информация:</h2>
+    <h2>Информация:</h2>
     <div class="box blc" id="content-list">
       <div class="colum">
         <b>Для ПК:</b>
@@ -174,7 +179,7 @@
     <div class="box blc anyway">
       <p>В разработке... Ожидайте добавления инструкции!</p>
     </div>
-    <h2 class="blc">Как скачать Minecraft <b var="%version_be%"></b> на Android?</h2>
+    <h2>Как скачать Minecraft <b var="%version_be%"></b> на Android?</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Нажмите на кнопку ниже:</p>
@@ -189,7 +194,7 @@
         <p>3.	Переходите к следующему пункту.</p>
       </div>
     </div>
-    <h2 class="blc">Как войти на сервер на ПК?</h2>
+    <h2>Как войти на сервер на ПК?</h2>
     <div class="box blc">
       <div class="colum">
         <p>1. Открываем «<b>Minecraft</b>».</p>
@@ -223,7 +228,7 @@
         <p>Можно использовать кнопку «<b>Настроить</b>» чтобы не создавать заново, и не забывайте нажимать «<b>Обновить</b>».</p>
       </div>
     </div>
-    <h2 class="blc">Отключаем ошибку мобильного интернета в Minecraft.</h2>
+    <h2>Отключаем ошибку мобильного интернета в Minecraft.</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Заходим в «<b>Minecraft</b>» на телефоне..</p>
@@ -241,7 +246,7 @@
         <p>5.	Переходите к следующему пункту.</p>
       </div>
     </div>
-    <h2 class="blc">Входим в Xbox Live.</h2>
+    <h2>Входим в Xbox Live.</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Заходим в <b>Minecraft</b> на телефоне.</p>
@@ -258,7 +263,7 @@
         <p>4.	Переходите к следующему пункту.</p>
       </div>
     </div>
-    <h2 class="blc">Скачиваем Tailscale</h2>
+    <h2>Скачиваем Tailscale</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Нажмите эту кнопку:</p>
@@ -271,7 +276,7 @@
         <p>3.	Переходите к следующему пункту.</p>
       </div>
     </div>
-    <h2 class="blc">Вход в Tailscale</h2>
+    <h2>Вход в Tailscale</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Входим в приложение <b>Tailscale</b>.</p>
@@ -321,7 +326,7 @@
         <p>Когда собираетесь играть сверху справа есть кнопка, она должна находиться в положении <b>Active</b>.<br> Когда все то в положении - <b>Stopped</b></p>
       </div>
     </div>
-    <h2 class="blc">Вход на сервер через телефон</h2>
+    <h2>Вход на сервер через телефон</h2>
     <div class="box blc">
       <div class="colum">
         <p>Когда вы выполнили пункты связанные со скачиваем <b>Minecraft</b>, входом в <b>Microsoft</b> в <br>аккаунт, настройкой <b>Tailscale</b> то можно переходить к этому пункту.</p>
@@ -358,7 +363,7 @@
         <p>Нажимаем на сервер с названием которое <b>вы</b> добавили. Пункты 4-7 нужно выполнить только первый раз.</p>
       </div>
     </div>
-    <h2 class="blc">Повышаем FPS на мобильниках</h2>
+    <h2>Повышаем FPS на мобильниках</h2>
     <div class="box blc">
       <div class="colum">
         <p>Вот простая инструкция как сделать чтобы <b>Minecraft</b> на телефонах <b>лучшее работал</b> и <b>выдавал больше FPS</b>.</p>
@@ -382,7 +387,7 @@
         <p>6.	Готово!</p>
       </div>
     </div>
-    <h2 class="blc">Регистрация на сервере</h2>
+    <h2>Регистрация на сервере</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Заходим на сервер.</p>
@@ -403,7 +408,7 @@
         </div>
       </div>
     </div>
-    <h2 class="blc">Вход на сервере</h2>
+    <h2>Вход на сервере</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Откройте чат.</p>
@@ -420,7 +425,7 @@
         <p>3.	Готово!</p>
       </div>
     </div>
-    <h2 class="blc">Установка Discord</h2>
+    <h2>Установка Discord</h2>
     <div class="box blc">
       <div class="colum">
         <p>1.	Нажмите на кнопку ниже:</p>
