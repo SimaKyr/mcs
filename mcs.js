@@ -212,7 +212,6 @@ function init() {
   firebase.initializeApp(firebaseConfig);
   window.set = function(key,value){firebase.database().ref().child(key).set(value);}
   get = {};
-  firebase.database().ref().on('value', snap => { get = snap.val(); update(); });
   blockAnyWay();
   if(window.mobile){
     document.body.classList.add("mobile");
@@ -230,7 +229,7 @@ function init() {
   if (user) {
     // User is signed in
     window.uid = user.uid;
-
+    firebase.database().ref().on('value', snap => { get = snap.val(); update(); });
     nickname.onchange = function (e) {
       set('users/' + uid + '/nickname', e.target.value);
     }
