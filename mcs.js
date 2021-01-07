@@ -175,7 +175,7 @@ function init() {
 
   iDomObj(['downloadTl', 'errorMinecraft', 'downloadTailscale', 'acceptDiscordInvite', 'downloadMCBE', 'discordOfficial']);
 
-  iDomObj(['qrcode', 'qrcodeGet', 'closeqr', 'theqr']);
+  iDomObj(['qrcode', 'qrcodeGet', 'closeqr', 'theqr', 'shopMC']);
 
   qrcode.style.display = "none";
   closeqr.onclick = function () {
@@ -185,7 +185,11 @@ function init() {
     qrcode.style.display = "block";
   }
   goToMainPage.onclick = function () {
-    document.location.replace('https://simakyr.github.io/');
+    //document.location.replace('https://simakyr.github.io/');
+    window.open("https://simakyr.github.io/","_self")
+  }
+  shopMC.onclick = function () {
+    window.open("https://simakyr.github.io/mcs-shop/","_self")
   }
   downloadTl.onclick = function () {
     window.open('https://tlauncher.org/installer');
