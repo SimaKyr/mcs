@@ -49,6 +49,7 @@ h1, h2{
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   margin-left: 30px;
   margin-right: 30px;
+  align-items: center;
 }
 .reg h2 {
   margin-top: 0px;
@@ -62,6 +63,9 @@ input{
   outline: 0;
   padding: 5px;
 }
+.copyMe{
+  display: flex !important;
+}
 /* MOBILE SUPPORT START*/
 .mobile .box{
   margin: 0;
@@ -70,11 +74,20 @@ input{
   display: grid;
   margin: 0;
 }
+.mobile #bar{
+  text-align: center;
+}
+.mobile .reg{
+  padding-left: 0;
+}
 .mobile #icon-server{
   height: 64px;
 }
-.mobile #qrcodeGet{
+.mobile button{
   margin-top: 20px;
+}
+.mobile #icon-site{
+  margin-left: calc(50% - 42px);
 }
 .mobile .alert{
   left: 1%;
@@ -95,6 +108,7 @@ body{
   color: #fff;
   padding-left: 50px;
   margin-right: 50px;
+  padding-top: 0;
 }
 .alert{
     height:10%;

@@ -69,6 +69,9 @@ copySupport = function () {
   const v = document.querySelectorAll(".forCopy");
   var i = 0;
   while (v.length != i) {
+    if(!v[i].parentElement.classList.contains('copyMe')){
+      v[i].parentElement.classList.add('copyMe');
+    }
     var s = document.createElement('img');
     s.src = 'copy.svg';
     s.alt = '[Скопировать]';
@@ -132,6 +135,15 @@ function update() {
   playersServer.innerText = get['players'] + '/' + get['max_players'];
   uptimeServer.innerText = timeConversion(get['uptime']*1000);
   if(window.firstFBLoad){
+    getOnline();
+    window.firstFBLoad = false;
+    var time = new Date();
+    set('users/' + uid + '/lastseen', time.toUTCString());
+    if(mobile){
+      set('users/' + uid + '/lastdevice', 'mobile');
+    }else{
+      set('users/' + uid + '/lastdevice', 'pc');
+    }
     if(get['users'][uid] == undefined){
       set('users/' + uid + '/nickname', randomNickname());
     }
@@ -154,8 +166,6 @@ function update() {
     replaceAllDoc('%version_be%', get['mcversion_be']);
     replaceAllDoc('%ram%', get['ram'] + ' Мегабайт');
     theqr.src = get['qrcode'];
-
-  window.firstFBLoad = false;
 }
 
 function iDomObj(dom_obj){
