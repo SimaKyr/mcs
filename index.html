@@ -12,11 +12,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="mcs.js" charset="utf-8"></script>
-    <script src="snow.js" charset="utf-8"></script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="alert">
+    <div class="alert" style="visibility: hidden;">
       <h2>Сообщение</h2>
       <p></p>
     </div>
@@ -31,7 +30,7 @@
           <input type="text" id="nickname" value="Steve">
         </div>
       </div>
-    <div id="qrcode">
+    <div id="qrcode" style="display: none;">
       <button type="button" name="button" id="closeqr">Закрыть</button>
       <p>На современном телефоне достаточно лишь открыть приложение камеры, навести и за одну секунду вам предложат открыть сайт...</p>
       <img alt="qrcode" id="theqr">
@@ -48,36 +47,48 @@
             </div>
           </div>
           <i id="onlyjava">(для ПК/ MC: Java Edition)</i>
+          <b>Адрес: </b>
+          <div class="colum">
+            <div class="forCopy" var="%ip_b%">
+            </div>
+          </div>
+          <b>Порт: </b>
+          <div class="colum">
+            <div class="forCopy" var="%port_b%">
+            </div>
+          </div>
+          <i id="onlyjava">(для Android/Windows 10 MC: Bedrock Edition)</i>
           <small>Адрес автоматически обновляеться на этом сайте</small>
         </div>
       </div>
-      <div class="colum blc">
-        <b>Статус сервера Minecraft:Java Edition (для ПК): </b>
-        <b id="statusServer">Доступ запрещен</b>
+      <div id="info">
+        <div>
+          <div class="colum blc">
+            <b>Статус сервера: </b>
+            <b id="statusServer">Доступ запрещен</b>
+          </div>
+          <div class="colum">
+            <b>Версия игры: </b>
+            <p id="versionServer"></p>
+          </div>
+          <div class="colum">
+            <b>Игроки: </b>
+            <p id="playersServer"></p>
+          </div>
+          <div class="colum">
+            <b>Сервер уже работает: </b>
+            <p id="uptimeServer"></p>
+          </div>
+          <div class="colum">
+            <b>Оперативная память сервера: </b>
+            <b var="%ram%"></b>
+          </div>
+          <p>Не забывайте что адрес меняеться после каждой перезагрузки сервера!</p>
+        </div>
+        <iframe src="https://discord.com/widget?id=787757239691509811&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" id="discordbox"></iframe>
       </div>
-      <div class="colum blc">
-        <b>Статус сервера Minecraft:Bedrock Edition (для Android): </b>
-        <b id="statusServerBedrock">Доступ запрещен</b>
       </div>
-      <div class="colum">
-        <b>Версия игры: </b>
-        <p id="versionServer"></p>
-      </div>
-      <div class="colum">
-        <b>Игроки: </b>
-        <p id="playersServer"></p>
-      </div>
-      <div class="colum">
-        <b>Сервер уже работает: </b>
-        <p id="uptimeServer"></p>
-      </div>
-      <div class="colum">
-        <b>Оперативная память сервера: </b>
-        <b var="%ram%"></b>
-      </div>
-      <p>Не забывайте что адрес меняеться(Только для сервера ПК) после каждой перезагрузки сервера!</p>
-    </div>
-    <h2>Информация:</h2>
+    <h2>Содержание:</h2>
     <div class="box blc" id="content-list">
       <div class="colum">
         <b>Для ПК:</b>
@@ -101,19 +112,37 @@
           <p>2.1.	Как скачать Minecraft <b var="%version_be%"></b> на Android?</p>
         </div>
         <div class="colum">
-          <p>2.2.	Отключаем ошибку мобильного интернета в Minecraft: BE.</p>
+          <p>2.2.	Входим в Xbox Live.</p>
         </div>
         <div class="colum">
-          <p>2.3.	Входим в Xbox Live.</p>
+          <p>2.3.	Как зайти на сервер через Android устройтсво.</p>
         </div>
         <div class="colum">
-          <p>2.4.	Скачиваем Tailscale.</p>
+          <p>2.4.	Отключаем ошибку мобильного интернета в Minecraft: BE.</p>
         </div>
         <div class="colum">
-          <p>2.6.	Как войти на сервер на телефоне?</p>
+          <p>2.5.	Повышаем FPS на мобильниках.</p>
         </div>
         <div class="colum">
-          <p>2.7.	Повышаем FPS на мобильниках.</p>
+          <p>2.6.	Пишет "java.net.UnkownHostException:".</p>
+        </div>
+        <div class="colum">
+          <p>2.7.	Исчезает через время "Geyser работает в фоновом режиме".</p>
+        </div>
+        <div class="colum">
+          <p>2.8. Не получаеться войти/зарегистрироваться на сервер с телефона.</p>
+        </div>
+        <div class="colum">
+          <p>2.9.	Как вводить быстро команды(<b>ПОЛЕЗНО</b>) на телефоне.</p>
+        </div>
+        <div class="colum">
+          <p>2.a.	Выбивает из сервера просто так на телефоне.</p>
+        </div>
+        <div class="colum">
+          <p>2.b.	Почему игроков 0?</p>
+        </div>
+        <div class="colum">
+          <p>2.c.	Не показывает в разделе "Друзья" - GeyserMC.</p>
         </div>
       </div>
       <div class="colum">
@@ -126,7 +155,7 @@
         <div class="colum">
           <p>3.2.	Что за пароль на сервере?</p>
         </div>
-        <div class="colum">
+        <div class="colum anyway">
           <p>3.3.	Как изменить скин?</p>
         </div>
         <div class="colum">
@@ -135,11 +164,12 @@
         <div class="colum anyway">
           <p>3.5.	Привязка аккаунта Discord к Minecraft.</p>
         </div>
+        <div class="colum">
+          <p>3.6.	Пишет "Sorry, but you are using an invalid nickname".</p>
+        </div>
       </div>
     </div>
-    <div class="colum blc center">
-      <h2>Как скачать Minecraft <b var="%version%"></b> на компьютер?</h2>
-    </div>
+    <h2>Как скачать Minecraft <b var="%version%"></b> на компьютер?</h2>
     <div class="box blc">
       <div class="colum">
         <p>1. Нажмите на эту кнопку:</p>
@@ -176,25 +206,6 @@
         <button type="button" name="button" id="errorMinecraft">Майнкрафт не запустился</button>
       </div>
     </div>
-    <h2 class="blc anyway">Устанавливаем мод сборку для улучшения FPS</h2>
-    <div class="box blc anyway">
-      <p>В разработке... Ожидайте добавления инструкции!</p>
-    </div>
-    <h2>Как скачать Minecraft <b var="%version_be%"></b> на Android?</h2>
-    <div class="box blc">
-      <div class="colum">
-        <p>1.	Нажмите на кнопку ниже:</p>
-      </div>
-      <div class="colum">
-        <button type="button" name="button" id="downloadMCBE">Скачать <b var="%version_be%"></b> Майнкрафт на телефон</button>
-      </div>
-      <div class="colum">
-        <p>2.	Подождать на том сайте 5 секунд и нажать «<b>Скачать файл</b>» потом установить скачанный файл.</p>
-      </div>
-      <div class="colum">
-        <p>3.	Переходите к следующему пункту.</p>
-      </div>
-    </div>
     <h2>Как войти на сервер на ПК?</h2>
     <div class="box blc">
       <div class="colum">
@@ -223,28 +234,29 @@
         <p>6. Нажимаем на сервер что добавили и нажмите «<b>Подключиться</b>».</p>
       </div>
       <div class="colum">
-        <p>Не забывайте что адрес меняется(<b>ТОЛЬКО НА ПК</b>) почти <b>после каждого включения</b> сервера.</p>
+        <p>Не забывайте что адрес меняется почти <b>после каждого включения</b> сервера.</p>
       </div>
       <div class="colum">
         <p>Можно использовать кнопку «<b>Настроить</b>» чтобы не создавать заново, и не забывайте нажимать «<b>Обновить</b>».</p>
       </div>
     </div>
-    <h2>Отключаем ошибку мобильного интернета в Minecraft.</h2>
+    <h2 class="blc anyway">Устанавливаем мод сборку для улучшения FPS</h2>
+    <div class="box blc anyway">
+      <p>В разработке... Ожидайте добавления инструкции!</p>
+    </div>
+    <h2>Как скачать Minecraft <b var="%version_be%"></b> на Android?</h2>
     <div class="box blc">
       <div class="colum">
-        <p>1.	Заходим в «<b>Minecraft</b>» на телефоне..</p>
+        <p>1.	Нажмите на кнопку ниже:</p>
       </div>
       <div class="colum">
-        <p>2.	Нажимаем «<b>Настройки</b>».</p>
+        <button type="button" name="button" id="downloadMCBE">Скачать <b var="%version_be%"></b> Майнкрафт на телефон</button>
       </div>
       <div class="colum">
-        <p>3.	Выбираем кнопку «<b>Профиль</b>».</p>
+        <p>2.	Подождать на том сайте 5 секунд и нажать «<b>Скачать файл</b>» потом установить скачанный файл.</p>
       </div>
       <div class="colum">
-        <p>4.	Включаем галочку «<b>Использовать сотовую сеть передачи данных</b>».</p>
-      </div>
-      <div class="colum">
-        <p>5.	Переходите к следующему пункту.</p>
+        <p>3.	Переходите к следующему пункту.</p>
       </div>
     </div>
     <h2>Входим в Xbox Live.</h2>
@@ -264,104 +276,75 @@
         <p>4.	Переходите к следующему пункту.</p>
       </div>
     </div>
-    <h2>Скачиваем Tailscale</h2>
+    <h2>Как зайти на сервер с Android.</h2>
     <div class="box blc">
       <div class="colum">
-        <p>1.	Нажмите эту кнопку:</p>
-        <button type="button" name="button" id="downloadTailscale">Скачать Tailscale для Android</button>
+        <b>ВНИМАНИЕ: На Android много проблем с подключение. На большинство проблем есть решение на сайте.</b>
       </div>
       <div class="colum">
-        <p>2.	Нажимаете кнопку «<b>Установить</b>».</p>
+        <p>1. Зайти в канал <b>#новости</b> в <b>нашем Discord</b> и найди GeyserMC и скачай.</p>
       </div>
       <div class="colum">
-        <p>3.	Переходите к следующему пункту.</p>
+        <p>2. Установи приложение.</p>
+      </div>
+      <div class="colum">
+        <p>3. Заходишь в приложение GeyserMC.</p>
+      </div>
+      <div class="colum">
+        <p>4. Выбираешь <b>Присоединиться к JAVA серверу</b>.</p>
+      </div>
+      <div class="colum">
+        <p>5. Кнопка <b>Конфиг</b>.</p>
+      </div>
+      <div class="colum">
+        <p>6. <b>Тип авторизации</b> выбираешь <b>Offline</b>.</p>
+      </div>
+      <div class="colum">
+        <p>7. В <b>адрес</b> пишешь:</p>
+      </div>
+      <div class="colum">
+        <div class="forCopy" var="%ip_b%">
+        </div>
+      </div>
+      <div class="colum">
+        <p>7. В <b>порт</b> пишешь:</p>
+      </div>
+      <div class="colum">
+        <div class="forCopy" var="%port_b%">
+        </div>
+      </div>
+      <div class="colum">
+        <p>Не забывайте что адрес и порт меняется почти <b>после каждого включения</b> сервера.</p>
+      </div>
+      <div class="colum">
+        <p>9. Нажимаешь кнопку <b>Назад</b> на телефоне, выбираем <b>Сохранить</b> и нажимаешь <b>Запустить</b> в приложении.</p>
+      </div>
+      <div class="colum">
+        <p>10. Заходишь в <b>Minecraft</b>.</p>
+      </div>
+      <div class="colum">
+        <p>11. Выбираешь <b>Друзья</b> в Minecraft.</p>
+      </div>
+      <div class="colum">
+        <p>12. Выбираешь <b>GeyserMC</b> в списке.</p>
       </div>
     </div>
-    <h2>Вход в Tailscale</h2>
+    <h2>Отключаем ошибку мобильного интернета в Minecraft.</h2>
     <div class="box blc">
       <div class="colum">
-        <p>1.	Входим в приложение <b>Tailscale</b>.</p>
+        <p>1.	Заходим в «<b>Minecraft</b>» на телефоне..</p>
       </div>
       <div class="colum">
-        <p>2.	Нажимаем кнопку «<b>Get Started</b>».</p>
+        <p>2.	Нажимаем «<b>Настройки</b>».</p>
       </div>
       <div class="colum">
-        <p>3.	Выбираем «<b>Sign in with other</b>».</p>
+        <p>3.	Выбираем кнопку «<b>Профиль</b>».</p>
       </div>
       <div class="colum">
-        <p>4.	Если спрашивает, выбираем <b>Chrome</b>.</p>
+        <p>4.	Включаем галочку «<b>Использовать сотовую сеть передачи данных</b>».</p>
       </div>
       <div class="colum">
-        <p>5.	Откроется страница на которой выбираем «<b>Sign in with Microsoft</b>».</p>
-      </div>
-      <div class="colum">
-        <p>Входить в Microsoft аккаунт нужно только моими данными.</p>
-      </div>
-      <div class="colum">
-        <p>6.	В поле «<b>Электронная почта, телефон или Skype</b>» пишем:</p>
-      </div>
-      <div class="colum">
-        <div class="forCopy" var="%tailscale_email%">
-        </div>
-      </div>
-      <div class="colum">
-        <p>7.	Нажимает кнопку «<b>Далле</b>».
-      </div>
-      <div class="colum">
-        <p>8.	В поле «<b>Пароль</b>» пишем:</p>
-      </div>
-      <div class="colum">
-        <div class="forCopy" var="%tailscale_password%">
-        </div>
-      </div>
-      <div class="colum">
-        <p>9.	Ставим галочку «<b>Оставаться в системе</b>».</p>
-      </div>
-      <div class="colum">
-        <p>10.	Нажимаем кнопку «<b>Вход</b>».</p>
-      </div>
-      <div class="colum">
-        <p>11.	Нажимаем кнопку <b>закрыть</b>(сверху слева) в приложении <b>Tailscale</b>.</p>
-      </div>
-      <div class="colum">
-        <p>Когда собираетесь играть сверху справа есть кнопка, она должна находиться в положении <b>Active</b>.<br> Когда все то в положении - <b>Stopped</b></p>
-      </div>
-    </div>
-    <h2>Вход на сервер через телефон</h2>
-    <div class="box blc">
-      <div class="colum">
-        <p>Когда вы выполнили пункты связанные со скачиваем <b>Minecraft</b>, входом в <b>Microsoft</b> в <br>аккаунт, настройкой <b>Tailscale</b> то можно переходить к этому пункту.</p>
-      </div>
-      <div class="colum">
-        <p>Не забываем включать галочку в <b>Tailscale</b>!</p>
-      </div>
-      <div class="colum">
-        <p>1.	Заходим в <b>Minecraft</b> на телефоне.</p>
-      </div>
-      <div class="colum">
-        <p>2.	Нажимаем кнопку «<b>Играть</b>».</p>
-      </div>
-      <div class="colum">
-        <p>3.	Выбираем раздел «<b>Серверы</b>».</p>
-      </div>
-      <div class="colum">
-        <p>4.	Листаем в самый низ и выбираем кнопку «<b>Добавить сервер</b>».</p>
-      </div>
-      <div class="colum">
-        <p>5.	В поле «<b>Имя сервера</b>» пишем <b>любое</b> название сервера, можно <i>SimaKyr</i>.</p>
-      </div>
-      <div class="colum">
-        <p>6.	В поле «<b>Адрес сервера</b>» пишем:</p>
-      </div>
-      <div class="colum">
-        <div class="forCopy" var="%ip_bedrock%">
-        </div>
-      </div>
-      <div class="colum">
-        <p>7.	Нажимаем кнопку «<b>Сохранить</b>».</p>
-      </div>
-      <div class="colum">
-        <p>Нажимаем на сервер с названием которое <b>вы</b> добавили. Пункты 4-7 нужно выполнить только первый раз.</p>
+        <p>5.	Переходите к следующему пункту.</p>
       </div>
     </div>
     <h2>Повышаем FPS на мобильниках</h2>
@@ -388,6 +371,73 @@
         <p>6.	Готово!</p>
       </div>
     </div>
+    <h2>Пишет "java.net.UnkownHostException:"</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>Неверно написаный адрес или порт, или же сервер выключен.</p>
+      </div>
+    </div>
+    <h2>Исчезает через время "Geyser работает в фоновом режиме".</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>Сначала сделайте следуйшее:</p>
+        <b>ВЫКЛЮЧИТЕ режим энергосбережения в настройках вашего устройства.</b>
+      </div>
+      <div class="colum">
+        <p>Для Huawei и Honor:<br>Сделайте как в видео, но в "Управление вручную" наоборот включить все галочки:</p>
+        <br>
+        <a href="https://www.youtube.com/watch?v=qGfF6TcX6XU&t=40s">https://www.youtube.com/watch?v=qGfF6TcX6XU&t=40s</a>
+      </div>
+      <div class="colum">
+        <p>Для Xiaomi:<br></p>
+        <a href="https://youtu.be/sNlGPQ1rCfU?t=30">https://youtu.be/sNlGPQ1rCfU?t=30</a>
+      </div>
+      <div class="colum">
+        <p>Для Samsung:<br></p>
+        <b>Настройки -> Приложения -> Три точки(вверху справа) -> Особые права доступа -> Оптимизация расхода -> Выбираем "Все" -> GeyserMC Android -> Выключить галочку</b>
+      </div>
+      <div class="colum">
+        <p>Для BlackView и других телефонов:<br></p>
+        <a href="https://www.youtube.com/watch?v=EKz-Z8flcnc">https://www.youtube.com/watch?v=EKz-Z8flcnc</a>
+      </div>
+    </div>
+    <h2>Не получаеться войти/зарегистрироваться на сервер с телефона.</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>Попробуйте ввести снова команду, это лаги.</p>
+      </div>
+    </div>
+    <h2>Как вводить быстро команды(<b>ПОЛЕЗНО</b>) на телефоне:</h2>
+    <div class="box blc">
+      <div class="colum">
+        <img alt="Загрузка..." src="https://cdn.discordapp.com/attachments/787757240135450634/817057430927704064/ezgif-1-d1cac26d6201.gif" alt="GIF" decoding="async"/>
+      </div>
+    </div>
+    <h2>Выбивает из сервера просто так на телефоне.</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>Ваш интернет из 90-х годов(попробуйте зайти в другое время или использовать Wi-Fi, сделайте вот что: <b>Настройки -> Видео -> Дальность прорисовки 8</b>, также попробуйте <b>выключить все</b> скачивания и <b>выйти из звонка</b> Discord на время).</p>
+      </div>
+    </div>
+    <h2>Почему игроков 0?</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>Так и должно быть.</p>
+      </div>
+    </div>
+    <h2>Не показывает в разделе "Друзья" - GeyserMC.</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>1. Попробуй способ: <b>Исчезает через время "Geyser работает в фоновом режиме".</b></p>
+      </div>
+      <div class="colum">
+        <p>2. Попробуйте перезапустить GeyserMC.</p>
+      </div>
+      <div class="colum">
+        <p>3. Полностю перезайти в Minecraft.</p>
+      </div>
+    </div>
+
     <h2>Регистрация на сервере</h2>
     <div class="box blc">
       <div class="colum">
@@ -445,14 +495,35 @@
         <button type="button" name="button" id="acceptDiscordInvite">Присоединиться к серверу Discord</button>
       </div>
     </div>
+    <h2>Пишет "Sorry, but you are using an invalid nickname".</h2>
+    <div class="box blc">
+      <div class="colum">
+        <p>Ваш ник должен соответствовать следуйшим правилам.</p>
+      </div>
+      <div class="colum">
+        <p><b>Размер ника</b> должен быть от 3 - 16 символов.</p>
+      </div>
+      <div class="colum">
+        <p>А РАЗРЕШЕННЫЕ символы у ника такие(<b>это не я</b> придумал, это Mojang):</p>
+      </div>
+      <div class="colum">
+        <p><b>A-Z</b> (большие и маленькие буквы)</p>
+      </div>
+      <div class="colum">
+        <p><b>0-9</b></p>
+      </div>
+      <div class="colum">
+        <p>и вот этот символ <b>_</b></p>
+      </div>
+    </div>
     <h2>О использовании ресурсов</h2>
     <div class="box">
       <div class="colum">
-        <p>Сайт создан SimaKyr-ом в 2020 году, можно использовать на лицензии MIT</p>
+        <p>Сайт создан SimaKyr-ом в 2020-2021 году, можно использовать на лицензии MIT</p>
       </div>
-      <div class="colum">
+      <!-- <div class="colum">
         <p>Используеться библиотека https://github.com/kurisubrooks/snow.js на лицензии MIT</p>
-      </div>
+      </div> -->
       <div class="colum">
         <p>Используеться значок копирования без лицензии, сайт: https://uxwing.com/copy-icon/</p>
       </div>

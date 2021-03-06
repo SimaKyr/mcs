@@ -120,15 +120,21 @@ function getOnline(){
       stOnline = false;
   }
   if(stOnline){
-    replaceAllDoc('%ip_pc%', get['ip-address']);
+    const ip = get['ip-address'];
+    replaceAllDoc('%port_b%', ip.split(':')[1]);
+    replaceAllDoc('%ip_b%', ip.split(':')[0]);
+    replaceAllDoc('%ip_pc%', ip);
   }else{
-    replaceAllDoc('%ip_pc%', randomJokeIP());
+    const j = randomJokeIP();
+    replaceAllDoc('%ip_b%', j);
+    replaceAllDoc('%port_b%', j);
+    replaceAllDoc('%ip_pc%', j);
   }
   uptime = get['uptime'];
 }
+
 function update() {
   setStatus(!stOnline, statusServer);
-  setStatus(get['status-be'] == 'offline', statusServerBedrock);
   str = get['mcversion'];
   str = str.substring(0, str.length - 1) + 'x';
   versionServer.innerText = str;
@@ -157,11 +163,10 @@ function update() {
     copySupport();
     replaceAllDoc('%ip_pc%', 'Загрузка...');
     setInterval(getOnline, 1000*10);
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }
     replaceAllDoc('%tailscale_password%', get['tailscale-password']);
     replaceAllDoc('%tailscale_email%', get['tailscale-email']);
-    replaceAllDoc('%ip_bedrock%', get['ip-bedrock']);
     replaceAllDoc('%version%', get['mcversion']);
     replaceAllDoc('%version_be%', get['mcversion_be']);
     replaceAllDoc('%ram%', get['ram'] + ' Мегабайт');
@@ -179,11 +184,11 @@ function init() {
   var alertElement = document.getElementsByClassName('alert')[0];
   alertElement.style.visibility = 'hidden';
 
-  iDomObj(['statusServer', 'versionServer', 'playersServer', 'uptimeServer', 'statusServerBedrock']);
+  iDomObj(['statusServer', 'versionServer', 'playersServer', 'uptimeServer']);
 
   iDomObj(['goToMainPage']);
 
-  iDomObj(['downloadTl', 'errorMinecraft', 'downloadTailscale', 'acceptDiscordInvite', 'downloadMCBE', 'discordOfficial']);
+  iDomObj(['downloadTl', 'errorMinecraft', 'acceptDiscordInvite', 'downloadMCBE', 'discordOfficial']);
 
   iDomObj(['qrcode', 'qrcodeGet', 'closeqr', 'theqr', 'shopMC']);
 
@@ -207,9 +212,9 @@ function init() {
   errorMinecraft.onclick = function () {
     window.open('https://tlauncher.org/ru/help.html');
   }
-  downloadTailscale.onclick = function () {
-    window.open('https://play.google.com/store/apps/details?id=com.tailscale.ipn');
-  }
+  // downloadTailscale.onclick = function () {
+  //   window.open('https://play.google.com/store/apps/details?id=com.tailscale.ipn');
+  // }
   discordOfficial.onclick = function () {
     window.open('https://discord.com/')
   }

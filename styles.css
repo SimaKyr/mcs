@@ -4,6 +4,9 @@ b, i, p, h1, h2, h3, h4, h5, h6, button{
 h3{
   color: #000;
 }
+#info{
+  display: flex;
+}
 h1, h2{
   text-align: center;
   padding-top: 1%;
@@ -22,7 +25,13 @@ h1, h2{
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 #beta{
-    color: #f00;
+  color: #f00;
+}
+#discordbox{
+  margin-left: 40%;
+  margin-top: 1%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .copy{
   padding: 5px;
